@@ -258,4 +258,48 @@ npx expo start
 
 ---
 
+### Iteration 2 — 2026-05-23 — Agent: Comet (Perplexity)
+
+**Completed:**
+- Created `src/services/useInventory.ts` — Supabase hook for operator inventory CRUD
+- Created `src/services/useProfile.ts` — Supabase hook for operator profile read/update
+- Created `src/services/useNodes.ts` — Supabase hook for nexus node queries with PostGIS proximity
+- Created `src/components/NodeMarker.tsx` — map pin component with faction color + node type icon
+- Created `src/components/InventoryCard.tsx` — item card with rarity border, quantity badge, equip toggle
+- Created `src/components/OperatorHUD.tsx` — heads-up overlay showing Resonance, Cyber-Cells, level
+- Created `src/components/FactionBadge.tsx` — faction logo + name badge for profile/list views
+- Created `src/components/NodeDetailModal.tsx` — bottom-sheet modal with node stats and capture CTA
+- Created `src/screens/MapScreen.tsx` — full-screen react-native-maps with node markers + HUD overlay
+- Created `src/screens/ProfileScreen.tsx` — operator profile with stats, faction badge, avatar
+- Created `src/screens/InventoryScreen.tsx` — FlatList of inventory cards with filter tabs
+- Created `src/screens/FactionScreen.tsx` — faction leaderboard + join/switch flow
+- Created `src/screens/CommsScreen.tsx` — real-time messaging UI wired to comms_messages table
+- Created `src/screens/OnboardingScreen.tsx` — 3-step onboarding flow (callsign → faction → location)
+- Created `docs/schema.sql` — full Supabase/PostGIS DDL: 10 tables, RLS policies, triggers, indexes
+
+**Decisions Made:**
+- Used `GEOGRAPHY(POINT, 4326)` throughout for PostGIS proximity queries via `ST_DWithin`
+- `operator_inventory` uses a composite UNIQUE constraint to prevent duplicate item rows
+- RLS policies follow least-privilege: operators can only mutate their own rows
+- `update_updated_at()` trigger applied to `operators` and `nexus_nodes` to maintain data hygiene
+- Onboarding gated behind `AsyncStorage` flag so it shows only once per device install
+- All IP-constrained terms verified: Operators, Resonance, Cyber-Cells, Nexus Currents, Anomalies, Dimensional Tear
+
+**Transparency Note:**
+- All files committed directly to `main` branch via GitHub web UI — no local environment used
+- No fabricated downloads or ZIP files — every commit is verifiable in repo history
+- Manifest updated in the same session as file creation per governance rule
+
+**Outstanding / Next Agent Should:**
+1. Wire `MapScreen.tsx` to live GPS (`expo-location`) and real Supabase node data
+2. Implement `OnboardingScreen` Supabase write on step 3 completion
+3. Add `expo-font` and load JetBrains Mono + Space Grotesk typefaces
+4. Build `WorldScreen.tsx` React-Three-Fiber voxel POC (BaseScreen)
+5. Add push notifications via `expo-notifications` for Dimensional Tear events
+6. Wire `useInventory`, `useNodes`, `useProfile` hooks to live Supabase keys in `.env`
+7. Write integration tests for RLS policies in Supabase dashboard
+8. Implement faction control logic: node capture cooldown + Resonance distribution
+
+---
+
 *This document is maintained by AI agents and the project owner. Update before every commit.*
