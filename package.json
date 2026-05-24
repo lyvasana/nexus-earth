@@ -1,0 +1,36 @@
+{
+  "name": "nexus-earth",
+  "version": "0.3.0",
+  "main": "App.tsx",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~52.0.0",
+    "expo-status-bar": "~2.0.0",
+    "expo-location": "~18.0.0",
+    "expo-gl": "~15.0.0",
+    "expo-linear-gradient": "~14.0.0",
+    "expo-font": "~13.0.0",
+    "react": "18.3.1",
+    "react-native": "0.76.3",
+    "react-native-maps": "1.18.0",
+    "react-native-safe-area-context": "4.12.0",
+    "react-native-screens": "~4.1.0",
+    "react-native-url-polyfill": "^2.0.0",
+    "@react-navigation/native": "^6.1.18",
+    "@react-navigation/bottom-tabs": "^6.6.1",
+    "@supabase/supabase-js": "^2.45.4",
+    "@react-three/fiber": "^8.17.10",
+    "three": "^0.170.0",
+    "@types/three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@types/react": "~18.3.0",
+    "typescript": "^5.3.0"
+  }
+}
