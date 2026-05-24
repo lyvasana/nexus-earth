@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Nexus Earth",
+    "slug": "nexus-earth",
+    "version": "0.3.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#121411"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.lyvasana.nexusearth",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Nexus Earth uses your location to detect nearby Nexus Nodes and Anomalies.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Nexus Earth uses your location to detect nearby Nexus Nodes and Anomalies."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#121411"
+      },
+      "package": "com.lyvasana.nexusearth",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Nexus Earth uses your location to detect nearby Nexus Nodes and Anomalies."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "YOUR_EAS_PROJECT_ID"
+      }
+    }
+  }
+}
